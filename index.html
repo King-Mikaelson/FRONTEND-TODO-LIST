@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <title>TODO task</title>
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="todo-header">
+            <div class="header">
+                <h1 class="title">TODO</h1>
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#FFF" fill-rule="evenodd"
+                        d="M13 21a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1zm-5.657-2.343a1 1 0 010 1.414l-2.121 2.121a1 1 0 01-1.414-1.414l2.12-2.121a1 1 0 011.415 0zm12.728 0l2.121 2.121a1 1 0 01-1.414 1.414l-2.121-2.12a1 1 0 011.414-1.415zM13 8a5 5 0 110 10 5 5 0 010-10zm12 4a1 1 0 110 2h-3a1 1 0 110-2h3zM4 12a1 1 0 110 2H1a1 1 0 110-2h3zm18.192-8.192a1 1 0 010 1.414l-2.12 2.121a1 1 0 01-1.415-1.414l2.121-2.121a1 1 0 011.414 0zm-16.97 0l2.121 2.12A1 1 0 015.93 7.344L3.808 5.222a1 1 0 011.414-1.414zM13 0a1 1 0 011 1v3a1 1 0 11-2 0V1a1 1 0 011-1z" />
+                </svg>
+            </div>
+
+            <div class="search-bar">
+                <form action="" task-new-list-form>
+                    <input type="text" class="new task" placeholder="create A New Todo" task-new-list-input />
+                </form>
+            </div>
+        </div>
+        <div class="todo-body" task-list-display-container>
+            <div class="tasks" task-data>
+
+
+                <div class="task">
+                    <input type="checkbox" id="task-1" />
+                    <label for="task-1">
+                        <span class="custom-checkbox"></span>
+                        See A Movie Today
+                    </label>
+                    <span class="custom-delete"></span>
+                </div>
+
+
+                <div class="task">
+                    <input type="checkbox" id="task-2" />
+                    <label for="task-2">
+                        <span class="custom-checkbox"></span>
+                        Watch Attack On Titan Today
+                    </label>
+                    <span class="custom-delete"></span>
+                </div>
+
+
+                <div class="task">
+                    <input type="checkbox" id="task-3" />
+                    <label for="task-3">
+                        <span class="custom-checkbox"></span>
+                        Kiss A Girl Today
+                    </label>
+                    <span class="custom-delete"></span>
+                </div>
+
+
+                <div class="task">
+                    <input type="checkbox" id="task-4" />
+                    <label for="task-4">
+                        <span class="custom-checkbox"></span>
+                        Got A Remote Today
+                    </label>
+                    <span class="custom-delete"></span>
+                </div>
+
+            </div>
+
+                <div class="body-footer">
+                    <p class="task-count" task-list-count> 5 items left</p>
+                    <button class="task-all" all-task-button>All</button>
+                    <button class="task-active" active-task-button>Active</button>
+                    <button class="task-completed" completed-task-button>Completed</button>
+                    <button class="task-clear-completed" clear-task-button>Clear completed</button>
+                </div>
+
+            
+
+
+
+
+        </div>
+
+    </div>
+    <template id="task-template">
+        <div class="task">
+            <input type="checkbox" />
+            <label>
+                <span class="custom-checkbox"></span>
+            </label>
+            <span class="custom-delete"></span>
+        </div>
+    </template>
+
+</body>
+
+</html>
