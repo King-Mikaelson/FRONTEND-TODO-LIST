@@ -30,13 +30,15 @@ let todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 
 activeTaskButton.addEventListener('click', e=> {
     const activeTodo = todos.filter(todo => !todo.complete)
-    render(activeTodo)
+    todos = activeTodo
+    render()
 })
 
 
 completedTaskButton.addEventListener('click', e=> {
     const activeTodos = todos.filter(todo => todo.complete)
-    render(activeTodos)
+    todos = activeTodos
+    render()
 })
 
 
@@ -95,9 +97,9 @@ function renderTask(){
         const checkbox = taskElement.querySelector('input')
         checkbox.id = todo.id
         checkbox.checked = todo.complete
-        const deleteButton = taskElement.getElementById('custom-delete')
-        deleteButton.id = todo.id
-        deleteButton.addEventListener()
+        // const deleteButton = taskElement.getElementById('custom-delete')
+        // deleteButton.id = todo.id
+        // deleteButton.addEventListener()
         const label = taskElement.querySelector('label')
         label.htmlFor = todo.id
         label.append(todo.name)
