@@ -3,7 +3,9 @@
 
 
 
-
+let switchMode = document.getElementById('switch-light-dark-mode')
+let darkmode = document.querySelector('.todo-body')
+let mainDarkMode = document.querySelector('.main')
 
 const newTaskForm = document.querySelector('[task-new-list-form]')
 const newTaskInput = document.querySelector('[task-new-list-input]')
@@ -23,22 +25,27 @@ const clearTaskButton = document.querySelector('[clear-task-button]')
 
 
 
-
 const LOCAL_STORAGE_LIST_KEY = 'task.lists'
 let todos = JSON.parse(localStorage.getItem(LOCAL_STORAGE_LIST_KEY)) || []
 
+let activeTasks = [];
+let completedTasks = [];
+let allTasks = []
 
-activeTaskButton.addEventListener('click', e=> {
-    const activeTodo = todos.filter(todo => !todo.complete)
-    todos = activeTodo
-    render()
-})
+
+
+
+
+
+// activeTaskButton.addEventListener('click', e=> {
+//    activeTask()
+//    saveAndRender()
+// })
 
 
 completedTaskButton.addEventListener('click', e=> {
-    const activeTodos = todos.filter(todo => todo.complete)
-    todos = activeTodos
-    render()
+    // completeTask()
+    // render()
 })
 
 
@@ -69,6 +76,20 @@ newTaskForm.addEventListener('submit', e => {
 })
 
 
+
+
+switchMode.addEventListener('click', e => {
+    // document.body.style.background = "hsl(235, 21%, 11%)";
+    darkmode.classList.toggle("todo-body-dark-mode");
+    mainDarkMode.classList.toggle("main-dark-mode");
+    document.body.classList.toggle("body-dark-mode");
+})
+
+
+
+
+
+
 function createTask (name) {
     return {id: Date.now().toString(), name: name, complete: false}
 }
@@ -88,6 +109,8 @@ function render() {
     clearElement(taskContainer)
     renderTask()
     renderTaskCount()
+    // activeTask()
+    // completeTask()
 }
 
 
@@ -108,6 +131,27 @@ function renderTask(){
     })
 }
 
+
+// function activeTask(){
+//     const incompletedTodos = todos.filter(todo => !todo.complete)
+//     if (incompletedTodos.length !== 0 ){
+//         var newArray = completedTasks.concat(completedTodos)
+//     }
+//     console.log(newArray);
+// }
+
+
+// function completeTask(){
+//     const completedTodos = todos.filter(todo => todo.complete)
+//     if (completedTodos.length !== 0 ){
+//        const array1 = completedTasks.concat(completedTodos)
+//        console.log(array1);
+//        todos = array1
+//     }
+    
+
+// }
+
 function renderTaskCount(){
     const incompleteTaskCount = todos.filter(todo => !todo.complete).length
     const taskString = incompleteTaskCount === 1 ? "task" : "tasks"
@@ -119,6 +163,9 @@ function clearElement(element){
         element.removeChild(element.firstChild)
     }
 }
+
+
+
 
 
 render()
